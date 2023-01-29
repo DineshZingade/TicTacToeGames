@@ -54,11 +54,24 @@ public class TicTacToeGame {
 		System.out.println("");
 	}
 
+	public void drawMove() {
+		System.out.println("draw move, enter index: ");
+		int index = sc.nextInt();
+		if (index > 0 && index < boardSize) {
+			if (board[index] == ' ')
+				board[index] = palyerLetter;
+			else
+				System.out.println("index is not empty");
+		} else
+			System.out.println("wrong index");
+	}
+
 	public static void main(String... args) {
 
 		TicTacToeGame TicTacToe = new TicTacToeGame();
 		TicTacToe.inputSymbol();
 		TicTacToe.showBoard();
+		TicTacToe.drawMove();
 
 	}
 }
