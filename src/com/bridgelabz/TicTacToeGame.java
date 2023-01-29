@@ -3,10 +3,11 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class TicTacToeGame {
-	
+
 	final int boardSize = 10;
 	char computerLetter = ' ';
 	char playerLetter = ' ';
+	char toss = ' ';
 	char board[] = new char[boardSize];
 	Scanner sc = new Scanner(System.in);
 
@@ -67,11 +68,27 @@ public class TicTacToeGame {
 			System.out.println("wrong index");
 	}
 
+	public void computerMove() {
+		System.out.println("computer move");
+	}
+
+	public void toss() {
+
+		System.out.println("Toss: Heads 'H' or Tails 'T' :");
+		toss = sc.next().charAt(0);
+		String tossResult = (int) (Math.random() * 10) % 2 == 0 ? "Heads" : "Tails";
+		System.out.println("Tossed: " + tossResult);
+
+		if (toss != tossResult.charAt(0))
+			computerMove();
+	}
+
 	public static void main(String... args) {
 
 		TicTacToeGame TicTacToe = new TicTacToeGame();
 		TicTacToe.inputSymbol();
 		TicTacToe.showBoard();
+		TicTacToe.toss();
 		TicTacToe.drawMove();
 
 	}
